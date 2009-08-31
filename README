@@ -1,0 +1,27 @@
+maildir_merge_duplicates.py
+
+Removes duplicate emails/files in a Maildir and merges their flags.
+
+Duplicate emails in a Maildir can occur e.g. when restoring a backup. Maildir
+stores its email flags in the filename itself. If an email status changes from
+unread to read a ",S" is appended to the end of the filename.
+
+Imagine now that something bad happened with your Maildir and some mails got
+lost/deleted, but you don't know which ones. In a normal restore scenario you
+would instruct your backup software to not overwrite existing files to make
+sure that you don't destroy the changes on other files done since the last
+backup.
+
+In this case you will end up with lots of duplicate emails in the case that the
+flags changed from the time of last backup. In fact you have overwritten
+existing information - the messages status flags.
+
+Another source of Maildir clutter might be a sync software that doesn't handle
+the specifics of Maildirs. In either case you want to delete the duplicate
+mails but you don't want to delete the "wrong" mails with the outdated flag
+information.
+
+maildir_merge_duplicates.py cannot magically know the original and the duplicate
+message of course, but it can merge the flags of the duplicates and delete the
+other message for you.
+

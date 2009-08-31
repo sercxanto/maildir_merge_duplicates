@@ -1,0 +1,3 @@
+ * Adapt for python version older than 2.5 (without hashlib)
+ * Print percentage of completion for large maildirs
+ * RPM specfile
