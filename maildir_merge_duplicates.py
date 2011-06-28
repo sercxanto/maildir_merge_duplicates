@@ -270,7 +270,7 @@ parser.add_option("-w", "--write",
 (options, args) = parser.parse_args()
 
 if len(args) < 1:
-    parser-print_help()
+    parser.print_help()
     sys.exit(2)
 
 optMaildir = os.path.expanduser(args[0])
